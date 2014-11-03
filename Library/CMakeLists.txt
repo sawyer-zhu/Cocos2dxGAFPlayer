@@ -23,65 +23,73 @@
 # THE SOFTWARE.
 # ****************************************************************************/
 
-# this CMakeLists is to generate GAFPlayer.a
+# this CMakeLists is to generate GAFPlayer.a/GAFPlayer.lib
 
 cmake_minimum_required(VERSION 2.6)
-project (GAFPlayer)
 
-if(WINDOWS)
-  ADD_DEFINITIONS(-DUNICODE -D_UNICODE)
+
+if(WIN32)
+set(GAF_PLATFORM_INCLUDE_DIR
+  ${COCOS_ROOT}/../external/${PLATFORM_FOLDER}-specific/gles/include/OGLES
+  )
+elseif(MACOSX OR APPLE)
+elseif(LINUX)
+elseif(ANDROID)
+else()
 endif()
 
-if(WINDOWS AND NOT BUILD_STATIC)
-  ADD_DEFINITIONS (-D_USRDLL)
-endif()
 
 set(GAFPLAYER_SRC
-  GAFPrecompiled.cpp
-  Sources/GAFAnimatedObject.cpp
-  Sources/GAFAnimation.cpp
-  Sources/GAFAnimationFrame.cpp
-  Sources/GAFAnimationSequence.cpp
-  Sources/GAFAsset.cpp
-  Sources/GAFCachedTexture.cpp
-  Sources/GAFFile.cpp
-  Sources/GAFFilterData.cpp
-  Sources/GAFFilterManager.cpp
-  Sources/GAFLoader.cpp
-  Sources/GAFQuadCommand.cpp
-  Sources/GAFShaderManager.cpp
-  Sources/GAFSprite.cpp
-  Sources/GAFSpriteWithAlpha.cpp
-  Sources/GAFStencilMaskSprite.cpp
-  Sources/GAFStream.cpp
-  Sources/GAFSubobjectState.cpp
-  Sources/GAFTextureAtlas.cpp
-  Sources/GAFTextureAtlasElement.cpp
-  Sources/PrimitiveDeserializer.cpp
-  Sources/TagDefineAnimationFrames.cpp
-  Sources/TagDefineAnimationFrames2.cpp
-  Sources/TagDefineAnimationMasks.cpp
-  Sources/TagDefineAnimationObjects.cpp
-  Sources/TagDefineAtlas.cpp
-  Sources/TagDefineNamedParts.cpp
-  Sources/TagDefineSequences.cpp
-  Sources/TagDefineStage.cpp
-  Sources/TagDefineTimeline.cpp 
+  ${GAF_ROOT}/GAFPrecompiled.cpp
+  ${GAF_ROOT}/Sources/GAFAnimatedObject.cpp
+  ${GAF_ROOT}/Sources/GAFAnimation.cpp
+  ${GAF_ROOT}/Sources/GAFAnimationFrame.cpp
+  ${GAF_ROOT}/Sources/GAFAnimationSequence.cpp
+  ${GAF_ROOT}/Sources/GAFAsset.cpp
+  ${GAF_ROOT}/Sources/GAFCachedTexture.cpp
+  ${GAF_ROOT}/Sources/GAFFile.cpp
+  ${GAF_ROOT}/Sources/GAFFilterData.cpp
+  ${GAF_ROOT}/Sources/GAFFilterManager.cpp
+  ${GAF_ROOT}/Sources/GAFLoader.cpp
+  ${GAF_ROOT}/Sources/GAFQuadCommand.cpp
+  ${GAF_ROOT}/Sources/GAFShaderManager.cpp
+  ${GAF_ROOT}/Sources/GAFSprite.cpp
+  ${GAF_ROOT}/Sources/GAFSpriteWithAlpha.cpp
+  ${GAF_ROOT}/Sources/GAFStencilMaskSprite.cpp
+  ${GAF_ROOT}/Sources/GAFStream.cpp
+  ${GAF_ROOT}/Sources/GAFSubobjectState.cpp
+  ${GAF_ROOT}/Sources/GAFTextureAtlas.cpp
+  ${GAF_ROOT}/Sources/GAFTextureAtlasElement.cpp
+  ${GAF_ROOT}/Sources/PrimitiveDeserializer.cpp
+  ${GAF_ROOT}/Sources/TagDefineAnimationFrames.cpp
+  ${GAF_ROOT}/Sources/TagDefineAnimationFrames2.cpp
+  ${GAF_ROOT}/Sources/TagDefineAnimationMasks.cpp
+  ${GAF_ROOT}/Sources/TagDefineAnimationObjects.cpp
+  ${GAF_ROOT}/Sources/TagDefineAtlas.cpp
+  ${GAF_ROOT}/Sources/TagDefineNamedParts.cpp
+  ${GAF_ROOT}/Sources/TagDefineSequences.cpp
+  ${GAF_ROOT}/Sources/TagDefineStage.cpp
+  ${GAF_ROOT}/Sources/TagDefineTimeline.cpp 
     )
 
+
 include_directories(
-  .
-  ./Sources
-  ${CMAKE_SOURCE_DIR}/libs/cocos2d-x/cocos/math
-  ${CMAKE_SOURCE_DIR}/cocos/math
+  ${GAF_PLATFORM_INCLUDE_DIR}
+  ${GAF_ROOT}
+  ${GAF_ROOT}/Sources
+  ${COCOS_ROOT}
+  ${COCOS_ROOT}/2d
+  ${COCOS_ROOT}/platform/${PLATFORM_FOLDER}
+  ${COCOS_ROOT}/../external/${PLATFORM_FOLDER}-specific/zlib/include
+  ${COCOS_ROOT}/../external/glfw3/include/${PLATFORM_FOLDER}
+  ${COCOS_ROOT}/math
 )
 
-add_library(gafplayer ${GAFPLAYER_SRC})
-
-target_link_libraries(gafplayer cocos2d)
+add_library(gafplayer STATIC ${GAFPLAYER_SRC})
 
 set_target_properties(gafplayer
     PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
 )
+
