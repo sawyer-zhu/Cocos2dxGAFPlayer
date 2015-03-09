@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\GAFAssetTextureManager.cpp" />
+    <ClCompile Include="Sources\GAFButton.cpp" />
     <ClCompile Include="Sources\GAFCachedTexture.cpp" />
     <ClCompile Include="Sources\GAFFile.cpp" />
     <ClCompile Include="Sources\GAFAnimationFrame.cpp" />
@@ -54,6 +55,7 @@
     <ClInclude Include="Sources\DefinitionTagBase.h" />
     <ClInclude Include="Sources\GAF.h" />
     <ClInclude Include="Sources\GAFAssetTextureManager.h" />
+    <ClInclude Include="Sources\GAFButton.h" />
     <ClInclude Include="Sources\GAFCachedTexture.h" />
     <ClInclude Include="Sources\GAFCollections.h" />
     <ClInclude Include="Sources\GAFDelegates.h" />

@@ -164,7 +164,7 @@ public:
 
     static GAFObject * create(GAFAsset * anAsset, GAFTimeline* timeline);
 
-    bool init(GAFAsset * anAnimationData, GAFTimeline* timeline);
+    virtual bool init(GAFAsset * anAnimationData, GAFTimeline* timeline);
 
     bool hasSequences() const;
 

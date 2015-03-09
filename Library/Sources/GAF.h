@@ -14,6 +14,7 @@
 #include "GAFAssetTextureManager.h"
 #include "GAFDelegates.h"
 #include "GAFTimeline.h"
+#include "GAFButton.h"
 
 #define GAF_VERSION 4.1
 

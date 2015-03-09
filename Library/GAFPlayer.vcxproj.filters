@@ -123,6 +123,9 @@
     <ClCompile Include="Sources\GAFPrecompiled.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\GAFButton.cpp">
+      <Filter>Sources\GAFObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\GAFAnimationFrame.h">
@@ -253,6 +256,9 @@
     </ClInclude>
     <ClInclude Include="Sources\GAFPrecompiled.h">
       <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\GAFButton.h">
+      <Filter>Sources\GAFObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

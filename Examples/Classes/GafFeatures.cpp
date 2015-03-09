@@ -295,7 +295,7 @@ void GafFeatures::generateGafFilesList()
 #endif // Platform
     searchGafFilesInDirectory(start_path);
 #else // SEARCH_ALL_GAF_FILES
-    m_files.push_back("cut_the_hope/cut_the_hope.gaf");
+    m_files.push_back("btn/btn.gaf");
     m_files.push_back("biggreen/biggreen.gaf");
     m_files.push_back("bird_bezneba/bird_bezneba.gaf");
     m_files.push_back("christmas2013_julia2/christmas2013_julia2.gaf");
@@ -408,7 +408,7 @@ void GafFeatures::enableSequenceControllers( bool value )
 
 void GafFeatures::onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *unused_event)
 {
-    if (!m_objects || !m_objects->count())
+    if (true || !m_objects || !m_objects->count())
     {
         return;
     }
@@ -688,6 +688,13 @@ void GafFeatures::addObjectsToScene()
         object->setSequenceDelegate(std::bind(&GafFeatures::onFinishSequence, this, _1, _2));
         object->setFramePlayedDelegate(std::bind(&GafFeatures::onFramePlayed, this, _1, _2));
         
+        GAFButton *button = reinterpret_cast<GAFButton*>(object->getObjectByName("btn_1"));
+        if (button != nullptr)
+        {
+            //button->setEnabled(false);
+            button->setCaption("sample text");
+            button->setButtonPressedCallback(std::bind(&GafFeatures::onButtonPressed, this, _1));
+        }
     }
 }
 
@@ -706,6 +713,13 @@ void GafFeatures::onFramePlayed(GAFObject *object, uint32_t frame)
         CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(it->second.c_str());
 #endif
     }
+}
+
+void GafFeatures::onButtonPressed(GAFObject* object)
+{
+    static int button_count = 1;
+    CCLOG("Button pressed callback %d", button_count);
+    button_count++;
 }
 
 //! path parameter could be changed

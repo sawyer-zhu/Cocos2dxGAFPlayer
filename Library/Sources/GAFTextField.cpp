@@ -28,4 +28,9 @@ void GAFTextField::initWithTextData(GAFTextData const* data)
     addChild(m_label);
 }
 
+void GAFTextField::setText(std::string text)
+{
+    m_label->setString(text);
+}
+
 NS_GAF_END

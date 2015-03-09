@@ -11,6 +11,7 @@
 #include "GAFSubobjectState.h"
 #include "GAFFilterData.h"
 #include "GAFTextField.h"
+#include "GAFButton.h"
 
 #include <math/TransformUtils.h>
 
@@ -242,7 +243,16 @@ GAFObject* GAFObject::encloseNewTimeline(uint32_t reference)
 
     CCAssert(tl != timelines.end(), "Invalid object reference.");
 
-    GAFObject* newObject = new GAFObject();
+    std::string lnkName = tl->second->getLinkageName();
+    GAFObject* newObject = nullptr;
+    if (lnkName.find("btn_") == 0)
+    {
+        newObject = new GAFButton();
+    }
+    else
+    {
+        newObject = new GAFObject();
+    }
     newObject->init(m_asset, tl->second);
     return newObject;
 }

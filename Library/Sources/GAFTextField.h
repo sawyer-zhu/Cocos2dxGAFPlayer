@@ -17,6 +17,8 @@ public:
 
     void initWithTextData(const GAFTextData *data);
 
+    void setText(std::string text);
+
 };
 
 NS_GAF_END

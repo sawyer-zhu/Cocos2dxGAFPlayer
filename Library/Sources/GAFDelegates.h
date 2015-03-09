@@ -12,4 +12,6 @@ typedef std::function<std::string(const std::string&)>                          
 typedef std::function<void(GAFObject* obj, uint32_t frame)>                        GAFFramePlayedDelegate_t;
 typedef std::function<void(GAFObject* object, const GAFSprite * subobject)>        GAFObjectControlDelegate_t;
 
+typedef std::function<void(GAFObject* obj)>                                        GAFButtonCallback_t;
+
 NS_GAF_END

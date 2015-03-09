@@ -98,6 +98,8 @@ public:
     virtual void onTexturePreLoad(std::string* path);
     
     virtual void onFramePlayed(GAFObject* object, uint32_t frame);
+
+    virtual void onButtonPressed(GAFObject* object);
 };
 
 #endif // __GafFeatures_SCENE_H__
