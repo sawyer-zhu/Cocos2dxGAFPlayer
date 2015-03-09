@@ -5,6 +5,12 @@
 
 NS_GAF_BEGIN
 
+const std::string GAFButton::s_sequenceIdle = "idle";
+const std::string GAFButton::s_sequencePressed = "pressed";
+const std::string GAFButton::s_sequenceDisabled = "disabled";
+
+const std::string GAFButton::s_subobjectTextfield = "textfield";
+
 GAFButton::GAFButton()
 : m_enabled(true)
 , m_textfield(nullptr)
@@ -22,16 +28,16 @@ bool GAFButton::init(GAFAsset* anAnimationData, GAFTimeline* timeline)
     bool result = GAFObject::init(anAnimationData, timeline);
 
     // check named sequences
-    result = result && (timeline->getSequence("idle") != nullptr);
-    result = result && (timeline->getSequence("pressed") != nullptr);
-    result = result && (timeline->getSequence("disabled") != nullptr);
+    result = result && (timeline->getSequence(s_sequenceIdle) != nullptr);
+    result = result && (timeline->getSequence(s_sequencePressed) != nullptr);
+    result = result && (timeline->getSequence(s_sequenceDisabled) != nullptr);
 
     if (result)
     {
-        playSequence("idle", false);
+        playSequence(s_sequenceIdle, false);
     }
 
-    m_textfield = reinterpret_cast<GAFTextField*>(getObjectByName("textfield"));
+    m_textfield = reinterpret_cast<GAFTextField*>(getObjectByName(s_subobjectTextfield));
 
     auto touchListener = cocos2d::EventListenerTouchOneByOne::create();
     touchListener->setSwallowTouches(true);
@@ -54,7 +60,7 @@ bool GAFButton::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 
     if (m_rect.containsPoint(localPoint))
     {
-        playSequence("pressed", false);
+        playSequence(s_sequencePressed, false);
         return true;
     }
     return false;
@@ -63,7 +69,7 @@ bool GAFButton::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 void GAFButton::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
     // callback                                                    
-    playSequence("idle", false);
+    playSequence(s_sequenceIdle, false);
 
     if (m_button_pressed_callback)
     {
@@ -77,7 +83,7 @@ void GAFButton::setEnabled(bool enabled)
     {
         m_enabled = enabled;
 
-        std::string sequence = m_enabled ? "idle" : "disabled";
+        std::string sequence = m_enabled ? s_sequenceIdle : s_sequenceDisabled;
 
         playSequence(sequence, false);
     }

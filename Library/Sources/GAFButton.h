@@ -29,6 +29,12 @@ private:
     GAFTextField *m_textfield;
 
     GAFButtonCallback_t m_button_pressed_callback;
+
+    const static std::string s_sequenceIdle;
+    const static std::string s_sequencePressed;
+    const static std::string s_sequenceDisabled;
+    
+    const static std::string s_subobjectTextfield;
 };
 
 NS_GAF_END
