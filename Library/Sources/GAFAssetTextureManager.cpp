@@ -37,6 +37,12 @@ void GAFAssetTextureManager::appendInfoFromTextureAtlas(GAFTextureAtlas* atlas)
 			m_atlasInfos.push_back(*i);
 		}
 	}
+    m_scale = atlas->getScale();
+}
+
+float GAFAssetTextureManager::getScale() const
+{
+    return m_scale;
 }
 
 bool GAFAssetTextureManager::isAtlasInfoPresent(const GAFTextureAtlas::AtlasInfo &ai)
@@ -74,7 +80,7 @@ void GAFAssetTextureManager::loadImages(const std::string& dir, GAFTextureLoadDe
 					source = aiSource.source;
 				}
 
-				if (aiSource.csf == cocos2d::CCDirector::getInstance()->getContentScaleFactor())
+				if (aiSource.csf * m_scale == cocos2d::CCDirector::getInstance()->getContentScaleFactor())
 				{
 					source = aiSource.source;
 					break;

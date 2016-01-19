@@ -17,7 +17,8 @@ public:
     bool                    swapTexture(uint32_t id, cocos2d::Texture2D* texture);
     
 	uint32_t				getMemoryConsumptionStat() const;
-
+    float                   getScale() const;
+    
 private:
 	typedef std::map<size_t, cocos2d::Image*> ImagesMap_t;
 	typedef std::map<size_t, cocos2d::Texture2D*> TexturesMap_t;
@@ -26,6 +27,7 @@ private:
 
 	GAFTextureAtlas::AtlasInfos_t m_atlasInfos;
 
+    float m_scale;
 	ImagesMap_t m_images;
 	TexturesMap_t m_textures;
 

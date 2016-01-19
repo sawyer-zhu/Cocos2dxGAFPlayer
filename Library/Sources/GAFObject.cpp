@@ -161,7 +161,12 @@ GAFObject* GAFObject::_instantiateObject(uint32_t id, GAFCharacterType type, uin
             cocos2d::Texture2D * texture = txMgr->getTextureById(txElemet->atlasIdx + 1);
             if (texture)
             {
-                spriteFrame = cocos2d::SpriteFrame::createWithTexture(texture, txElemet->bounds);
+                auto rect = txElemet->bounds;
+                rect.origin.x /= txElemet->getScale();
+                rect.origin.y /= txElemet->getScale();
+                rect.size.width /= txElemet->getScale();
+                rect.size.height /= txElemet->getScale();
+                spriteFrame = cocos2d::SpriteFrame::createWithTexture(texture, rect);
             }
             else
             {
@@ -176,14 +181,14 @@ GAFObject* GAFObject::_instantiateObject(uint32_t id, GAFCharacterType type, uin
                 result = new GAFMask();
             result->initWithSpriteFrame(spriteFrame, txElemet->rotation);
             result->objectIdRef = id;
-            cocos2d::Vect pt = cocos2d::Vect(0 - (0 - (txElemet->pivotPoint.x / result->getContentSize().width)),
-                0 + (1 - (txElemet->pivotPoint.y / result->getContentSize().height)));
+            cocos2d::Vect pt = cocos2d::Vect(0 - (0 - ((txElemet->pivotPoint.x/txElemet->getScale()) / result->getContentSize().width)),
+                0 + (1 - ((txElemet->pivotPoint.y/txElemet->getScale()) / result->getContentSize().height)));
             result->setAnchorPoint(pt);
 
-            if (txElemet->getScale() != 1.0f)
-            {
-                result->setAtlasScale(1.0f / txElemet->getScale());
-            }
+//            if (txElemet->getScale() != 1.0f)
+//            {
+//                result->setAtlasScale(1.0f / txElemet->getScale());
+//            }
             result->setBlendFunc(cocos2d::BlendFunc::ALPHA_PREMULTIPLIED);
         }
     }

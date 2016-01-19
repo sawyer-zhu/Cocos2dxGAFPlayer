@@ -4,25 +4,29 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>gafplayer Mac.xcscheme</key>
+		<key>Example Mac.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>22</integer>
+			<integer>24</integer>
 		</dict>
-		<key>gafplayer.xcscheme</key>
+		<key>Example.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>21</integer>
+			<integer>23</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1A2FBEC0192DEF8700631FE9</key>
+		<key>29CC58711A3618A200B31D72</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>29CC57FA1A36113E00B31D72</key>
+		<key>CF59E906187DAB2D003A6524</key>
 		<dict>
 			<key>primary</key>
 			<true/>
