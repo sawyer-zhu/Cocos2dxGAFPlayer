@@ -80,6 +80,9 @@ public:
 
 	const Timelines_t&			getTimelines() const;
     Timelines_t&                getTimelines();
+    
+    const SoundInfos_t&			getSoundInfos() const;
+    SoundInfos_t&               getSoundInfos();
 
     static GAFAsset*            createWithBundle(const std::string& zipfilePath, const std::string& entryFile, GAFTextureLoadDelegate_t delegate, GAFLoader* customLoader = nullptr);
     static GAFAsset*            createWithBundle(const std::string& zipfilePath, const std::string& entryFile);

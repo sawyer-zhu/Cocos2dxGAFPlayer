@@ -233,7 +233,7 @@ void GAFMovieClip::setColorTransform(const GLfloat * colorTransform)
 
 void GAFMovieClip::_setBlendingFunc()
 {
-    setBlendFunc(cocos2d::BlendFunc::ALPHA_PREMULTIPLIED);
+//    setBlendFunc(cocos2d::BlendFunc::ALPHA_PREMULTIPLIED);
 }
 
 void GAFMovieClip::setColorMarixFilterData(GAFColorColorMatrixFilterData* data)

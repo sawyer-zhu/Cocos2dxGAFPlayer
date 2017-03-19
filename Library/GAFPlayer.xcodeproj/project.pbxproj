@@ -538,6 +538,8 @@
 		1A2FBE52192DECE200631FE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CCX_ROOT = "$(SRCROOT)/../../..";
+				CCX_ROOT2 = "$(SRCROOT)/../../sakura_client/sakura/cocos2d/";
 				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
@@ -545,6 +547,8 @@
 		1A2FBE53192DECE200631FE9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CCX_ROOT = "$(SRCROOT)/../../..";
+				CCX_ROOT2 = "$(SRCROOT)/../../sakura_client/sakura/cocos2d/";
 			};
 			name = Release;
 		};
@@ -552,8 +556,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CCX_ROOT = "$(SRCROOT)/../../..";
-				CCX_ROOT2 = "$(SRCROOT)/../../cocos2d-x-3.8/";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -617,8 +619,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CCX_ROOT = "$(SRCROOT)/../../..";
-				CCX_ROOT2 = "$(SRCROOT)/../../cocos2d-x-3.8/";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -677,8 +677,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CCX_ROOT = "$(SRCROOT)/../../../";
-				CCX_ROOT2 = "$(SRCROOT)/../../cocos2d-x-3.8/";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -746,8 +744,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CCX_ROOT = "$(SRCROOT)/../../../";
-				CCX_ROOT2 = "$(SRCROOT)/../../cocos2d-x-3.8/";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

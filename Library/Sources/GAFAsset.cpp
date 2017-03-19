@@ -534,6 +534,16 @@ const Timelines_t& GAFAsset::getTimelines() const
     return m_timelines;
 }
 
+const SoundInfos_t& GAFAsset::getSoundInfos() const
+{
+    return m_soundInfos;
+}
+
+SoundInfos_t& GAFAsset::getSoundInfos()
+{
+    return m_soundInfos;
+}
+
 const GAFHeader& GAFAsset::getHeader() const
 {
     return m_header;
