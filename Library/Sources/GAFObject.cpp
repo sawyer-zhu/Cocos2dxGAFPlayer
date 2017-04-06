@@ -328,6 +328,8 @@ void GAFObject::stop()
 
 void GAFObject::processAnimations(float dt)
 {
+    retain();
+    autorelease();
     if (m_skipFpsCheck)
     {
         step();
