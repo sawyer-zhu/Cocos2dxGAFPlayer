@@ -1025,7 +1025,7 @@ void GAFObject::realizeFrame(cocos2d::Node* out, uint32_t frameIndex)
                 std::string type = action.getParam(GAFTimelineAction::PI_EVENT_TYPE);
                 if (type.compare(GAFSoundInfo::SoundEvent) == 0)
                 {
-                    m_asset->soundEvent(&action);
+                    if (m_isRunning) m_asset->soundEvent(&action);
                 }
                 else
                 {
